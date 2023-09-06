@@ -1,0 +1,7 @@
+---
+
+
+
+etcd_release: "3.3.11"
+etcd_token: 'Dexa6K7pSJrJ'
+etcd_state: "existing"

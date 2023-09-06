@@ -1,0 +1,8 @@
+---
+
+ansible_connection: ssh
+ansible_user: vagrant
+
+etcd_release: "3.3.11"
+etcd_token: 'Dexa6K7pSJrJ' # в реальных проектах секреты в коде хранить нельзя, vault наше всё
+etcd_state: "existing"
