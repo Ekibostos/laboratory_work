@@ -1,16 +1,22 @@
 [Unit]
-Description=Etcd Server
+Description=etcd - highly-available key value store
+Documentation=https://github.com/coreos/etcd
 After=network.target
-After=network-online.target
 Wants=network-online.target
+
 [Service]
-Type=notify
-WorkingDirectory=/var/lib/etcd/
+Environment=DAEMON_ARGS=
+Environment=ETCD_DATA_DIR=/var/lib/etcd
 EnvironmentFile=-/etc/etcd/etcd.conf
+Type=notify
 User=etcd
-# set GOMAXPROCS to number of processors
-ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/local/bin/etcd --name=\"${ETCD_NAME}\" --data-dir=\"${ETCD_DATA_DIR}\" --listen-client-urls=\"${ETCD_LISTEN_CLIENT_URLS}\""
-Restart=on-failure
+PermissionsStartOnly=true
+#ExecStart=/bin/sh -c "GOMAXPROCS=$(nproc) /usr/bin/etcd $DAEMON_ARGS"
+ExecStart=/usr/local/bin/etcd $DAEMON_ARGS
+Restart=on-abnormal
+#RestartSec=10s
 LimitNOFILE=65536
+
 [Install]
 WantedBy=multi-user.target
+Alias=etcd.service

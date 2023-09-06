@@ -54,9 +54,11 @@
     src: "etcd.conf.j2"
     dest: "/etc/etcd/etcd.conf"
 
+- name: Daemon reload
+  ansible.builtin.systemd:
+    daemon_reload: true
+
 - name: Start etcd service
   ansible.builtin.systemd:
-    state: started
-    daemon_reload: true
+    state: restarted
     name: etcd
-    enabled: true
