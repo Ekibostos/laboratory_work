@@ -60,5 +60,5 @@
 
 - name: Start etcd service
   ansible.builtin.systemd:
-    state: restarted
+    state: started
     name: etcd
