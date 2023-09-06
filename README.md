@@ -4,12 +4,15 @@
 
 ### Первичная установка vagrant и virtualbox
 Если у вас Ubuntu 22.04 выполните `sudo apt install vagrant virtualbox-qt virtualbox linux-generic-hwe-22.04`, эта команда установит всё необходимое, в том числе ядро со всеми модулями.
+
 Добавить себя в группу `sudo usermod -a -G vboxusers $(whoami)`
+
 Перезагрузка.
 
 ### Запуск виртуалок
 
 Образ centos 8 я качал с оф. сайта.
+
 Добавить образ:
 
 ```sh
@@ -32,6 +35,7 @@ vagrant up
 - Если ничего не работает: `make reset`
 
 `source ./venv/bin/activate` для активации venv.
+
 `deactivate` ну вы поняли.
 
 ### Запуск плейбука
