@@ -35,14 +35,15 @@ bootstrap:
  - host replication replicator samenet md5
  - host replication all 127.0.0.1/32 md5
  - host replication all ::1/128 md5
+ - host all all all md5
  users:
   {{ postgres_user }}:
    password: {{ postgres_user_pass }}
    options:
     - superuser
 postgresql:
- listen: {{ postgres_listen_ip }}:{{ postgres_listen_port }}
- connect_address: {{ primary_ip }}:{{ postgres_listen_port }}
+ listen: 0.0.0.0:5432
+ connect_address: {{ primary_ip }}:5432
  config_dir: /var/lib/pgsql/14/data
  bin_dir: /usr/pgsql-14/bin/
  data_dir: /var/lib/pgsql/14/data

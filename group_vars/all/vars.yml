@@ -8,8 +8,6 @@ etcd_token: 'Dexa6K7pSJrJ' # в реальных проектах секреты
 
 postgres_user: my_user
 postgres_user_pass: my_pass
-postgres_listen_ip: "0.0.0.0"
-postgres_listen_port: "5432"
 
 haproxy_listen_ip: "{{ primary_ip }}"
 haproxy_listen_port: "7000"

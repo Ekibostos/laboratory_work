@@ -39,6 +39,7 @@
     src: "patroni.yml.j2"
     dest: "/etc/patroni/patroni.yml"
     mode: 0666
+  notify: Reload patroni
 
 - name: Create unit file
   ansible.builtin.copy:
